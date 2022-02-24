@@ -26,8 +26,15 @@ Getting Started with pytest-bdd  on real BrowserStack couldn't be easier!
 
 ### **Run first test :**
 
-- For Python 3
+- Include the access key as environment variables
+
+    ```sh
+        export BROWSERSTACK_USER=<Your user name>
+        export BROWSERSTACK_ACCESS_KEY=<Your access Key>
+    ```
+
+- For all versions of python
 
 	```sh
-		pytest -k GoogleSrch
+		pytest testGoogleSrch.py -v
 	```	

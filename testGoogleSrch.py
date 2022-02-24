@@ -9,6 +9,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from pytest_bdd import scenario, given, when, then, parsers
 
+from environment import start_local, stop_local
+
 config_file_path = "config/single.json"
 print("Path to the config file = %s" % (config_file_path))
 with open(config_file_path) as config_file:
@@ -33,10 +35,18 @@ def browser():
         USERNAME, BROWSERSTACK_ACCESS_KEY
     )
     desired_capabilities = CONFIG['capabilities']
+    for key in CONFIG["capabilities"]:
+        if key not in desired_capabilities:
+            desired_capabilities[key] = CONFIG["capabilities"][key]
+
+    print("Local=>"+desired_capabilities["browserstack.local"])
+    if "browserstack.local" in desired_capabilities and desired_capabilities["browserstack.local"]:
+        start_local()
     b = webdriver.Remote(command_executor=url, desired_capabilities=desired_capabilities)
     b.implicitly_wait(10)
     yield b
     b.quit()
+    stop_local()
 
 
 @given(parsers.parse('I visit url "{google}"'))

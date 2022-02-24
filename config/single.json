@@ -7,6 +7,6 @@
     "project": "GoogleSearch",
     "build": "pytest-bdd-build",
     "name" : "single-test",
-    "browserstack.local": "false"
+    "browserstack.local": "true"
   }
 }
