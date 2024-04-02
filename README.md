@@ -36,5 +36,5 @@ Getting Started with pytest-bdd  on real BrowserStack couldn't be easier!
 - For all versions of python
 
 	```sh
-		pytest testGoogleSrch.py -v
+		pytest testGoogleSearch.py -v
 	```	
