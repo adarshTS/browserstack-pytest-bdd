@@ -19,7 +19,6 @@ To install the dependencies, run :
     ```
 
 
-
 ## Getting Started
 
 Getting Started with pytest-bdd  on real BrowserStack couldn't be easier!
@@ -36,5 +35,5 @@ Getting Started with pytest-bdd  on real BrowserStack couldn't be easier!
 - For all versions of python
 
 	```sh
-		pytest testGoogleSearch.py -v
+		browserstack-sdk pytest testGoogleSearch.py
 	```	
